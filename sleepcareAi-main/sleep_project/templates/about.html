@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %}About — SleepCare AI{% endblock %}
+{% block nav_about %}active{% endblock %}
+
+{% block content %}
+<section class="sca-page-header">
+  <div class="container">
+    <h1><i class="bi bi-info-circle-fill sca-page-icon"></i> About This Project</h1>
+    <p>Sleep Quality and Sleep Disorder Prediction Using XGBoost and Probability Calibration</p>
+  </div>
+</section>
+
+<section class="container sca-about-section">
+  <div class="row g-4">
+    <div class="col-lg-8">
+
+      <div class="sca-card sca-about-card">
+        <h4><i class="bi bi-mortarboard-fill"></i> Purpose of the Project</h4>
+        <p>
+          SleepCare AI is an MSc Data Science project that explores whether everyday lifestyle
+          and health measurements — such as sleep duration, physical activity, stress level and
+          heart rate — can be used to estimate sleep quality and flag the likely presence of a
+          sleep disorder. The application demonstrates an end-to-end machine learning workflow:
+          data preprocessing, model training, probability calibration, and deployment through a
+          web interface.
+        </p>
+      </div>
+
+      <div class="sca-card sca-about-card">
+        <h4><i class="bi bi-diagram-3-fill"></i> XGBoost Machine Learning Model</h4>
+        <p>
+          Both prediction tasks are powered by XGBoost (Extreme Gradient Boosting), a
+          tree-based ensemble algorithm well suited to structured/tabular health data. XGBoost
+          builds a sequence of decision trees, where each new tree corrects the errors of the
+          previous ones, producing strong predictive performance on datasets like this one.
+        </p>
+      </div>
+
+      <div class="sca-card sca-about-card">
+        <h4><i class="bi bi-moon-stars-fill"></i> Sleep Quality Prediction</h4>
+        <p>
+          The Sleep Quality model is a binary classifier that estimates whether a person's
+          overall sleep quality is likely to be <strong>Good</strong> or <strong>Poor</strong>,
+          based on lifestyle and health inputs. It outputs a probability that is translated into
+          a clear label and confidence percentage.
+        </p>
+      </div>
+
+      <div class="sca-card sca-about-card">
+        <h4><i class="bi bi-activity"></i> Sleep Disorder Prediction</h4>
+        <p>
+          The Sleep Disorder model is a multi-class classifier trained to distinguish between
+          three categories: <strong>No Sleep Disorder</strong>, <strong>Insomnia</strong>, and
+          <strong>Sleep Apnea</strong>. It produces a probability for each class, and the class
+          with the highest probability is shown as the predicted outcome, alongside the full
+          probability breakdown.
+        </p>
+      </div>
+
+      <div class="sca-card sca-about-card">
+        <h4><i class="bi bi-sliders"></i> Probability Calibration</h4>
+        <p>
+          Raw probabilities from gradient boosted models are not always well calibrated — a
+          predicted "80% confidence" does not necessarily mean the model is correct 80% of the
+          time. This project applies probability calibration (e.g. Platt scaling / isotonic
+          regression) on top of the base XGBoost outputs so the reported percentages better
+          reflect true likelihoods.
+        </p>
+      </div>
+
+      <div class="sca-card sca-about-card">
+        <h4><i class="bi bi-graph-up"></i> Why Calibrated Probabilities Are Useful</h4>
+        <p>
+          Calibrated probabilities make model outputs more trustworthy and interpretable. Instead
+          of a raw, potentially overconfident score, a calibrated probability gives a more honest
+          estimate of uncertainty — which matters in any health-adjacent context, even an
+          educational one, where over- or under-confident predictions could be misleading.
+        </p>
+      </div>
+
+      <div class="sca-card sca-about-card sca-about-disclaimer-card">
+        <h4><i class="bi bi-shield-exclamation"></i> Educational / Research Purpose Only</h4>
+        <p>
+          SleepCare AI is built strictly for academic demonstration as part of an MSc Data
+          Science project. It does not replace professional medical advice, diagnosis, or
+          treatment. Predictions are model-estimated probabilities based on limited inputs, not
+          clinical assessments. Anyone experiencing persistent sleep problems or symptoms should
+          consult a qualified healthcare professional.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="col-lg-4">
+      <div class="sca-card sca-summary-card">
+        <h5>Project Snapshot</h5>
+        <ul class="sca-summary-list">
+          <li><i class="bi bi-check-circle-fill"></i> Django web application</li>
+          <li><i class="bi bi-check-circle-fill"></i> XGBoost classification models</li>
+          <li><i class="bi bi-check-circle-fill"></i> Calibrated probability outputs</li>
+          <li><i class="bi bi-check-circle-fill"></i> No login or registration required</li>
+          <li><i class="bi bi-check-circle-fill"></i> Educational / research use only</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

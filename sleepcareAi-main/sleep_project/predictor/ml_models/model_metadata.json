@@ -1,0 +1,60 @@
+{
+  "feature_cols": [
+    "Gender",
+    "Age",
+    "Occupation",
+    "Sleep Duration",
+    "Physical Activity Level",
+    "Stress Level",
+    "BMI Category",
+    "Heart Rate",
+    "Daily Steps",
+    "systolic_bp",
+    "diastolic_bp"
+  ],
+  "categorical_features": [
+    "Gender",
+    "Occupation",
+    "BMI Category"
+  ],
+  "numerical_features": [
+    "Age",
+    "Sleep Duration",
+    "Physical Activity Level",
+    "Stress Level",
+    "Heart Rate",
+    "Daily Steps",
+    "systolic_bp",
+    "diastolic_bp"
+  ],
+  "quality_target": "Quality of Sleep",
+  "disorder_target": "Sleep Disorder",
+  "disorder_classes": [
+    "Insomnia",
+    "None",
+    "Sleep Apnea"
+  ],
+  "quality_range": [
+    3,
+    9
+  ],
+  "is_calibrated": false,
+  "calibration_method": "none",
+  "best_quality_model": "XGBoost Tuned",
+  "best_disorder_model": "XGBoost Tuned",
+  "best_calibration_model": "Uncalibrated XGBoost",
+  "results_quality": {
+    "r2_mean": 0.7383,
+    "rmse_mean": 0.6556,
+    "mae_mean": 0.4789
+  },
+  "results_disorder": {
+    "f1_mean": 0.9365,
+    "roc_auc_mean": 0.9291
+  },
+  "results_calibration": {
+    "brier": 0.039131,
+    "logloss": 0.305475,
+    "ece": 0.021376
+  }
+}

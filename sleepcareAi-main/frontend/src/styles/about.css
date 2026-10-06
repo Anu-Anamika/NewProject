@@ -1,0 +1,962 @@
+/* =========================================================================
+   SleepCare AI — About Page Stylesheet
+   Clean Healthcare + AI aesthetic: Navy & Blue primary colors, rounded cards,
+   soft shadows, high legibility typography, plenty of whitespace, fully responsive.
+   ========================================================================= */
+
+:root {
+  --about-navy: #071D3B;
+  --about-navy-light: #102F56;
+  --about-blue: #147DF5;
+  --about-blue-light: #5BB8FF;
+  --about-blue-tint: #EBF5FF;
+  --about-purple: #8B5CF6;
+  --about-purple-tint: #F3E8FF;
+  --about-green: #10B981;
+  --about-green-tint: #ECFDF5;
+  --about-text-dark: #0F172A;
+  --about-text-muted: #64748B;
+  --about-text-light: #94A3B8;
+  --about-bg: #F8FAFC;
+  --about-card-bg: #FFFFFF;
+  --about-border: #E2E8F0;
+  --about-shadow-sm: 0 4px 16px rgba(7, 29, 59, 0.04);
+  --about-shadow-md: 0 10px 30px rgba(7, 29, 59, 0.06);
+  --about-shadow-lg: 0 16px 40px rgba(7, 29, 59, 0.09);
+  --about-radius-lg: 20px;
+  --about-radius-md: 14px;
+}
+
+.sc-about-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #FFFFFF;
+  color: var(--about-text-dark);
+}
+
+.sc-about-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+  width: 100%;
+}
+
+/* -------------------------------------------------------------------------
+   1. HERO SECTION
+   ------------------------------------------------------------------------- */
+.sc-about-hero {
+  padding: 4.5rem 0 3.5rem;
+  background: linear-gradient(180deg, #F0F7FF 0%, #FFFFFF 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sc-about-hero-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.5rem;
+}
+
+.sc-about-hero-left {
+  flex: 1.15;
+  max-width: 580px;
+}
+
+.sc-about-eyebrow {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--about-blue);
+  margin-bottom: 1.1rem;
+}
+
+.sc-about-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--about-navy);
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.sc-about-highlight {
+  color: var(--about-blue);
+}
+
+.sc-about-lead {
+  font-size: 1.08rem;
+  color: var(--about-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2.25rem;
+  max-width: 520px;
+}
+
+.sc-about-hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sc-about-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--about-blue);
+  color: #FFFFFF !important;
+  padding: 0.85rem 1.65rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(20, 125, 245, 0.28);
+}
+
+.sc-about-btn-primary:hover {
+  background: #106cd8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(20, 125, 245, 0.4);
+}
+
+.sc-about-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #FFFFFF;
+  color: var(--about-navy) !important;
+  padding: 0.85rem 1.65rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1.5px solid var(--about-border);
+  transition: all 0.25s ease;
+}
+
+.sc-about-btn-secondary:hover {
+  border-color: var(--about-blue);
+  color: var(--about-blue) !important;
+  background: #F8FAFC;
+  transform: translateY(-2px);
+}
+
+/* Hero Illustration (Sleep + AI + Data) */
+.sc-about-hero-right {
+  flex: 0.95;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sc-about-illustration-wrap {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+}
+
+.sc-about-hero-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -------------------------------------------------------------------------
+   2. WHAT IS SLEEPCARE AI?
+   ------------------------------------------------------------------------- */
+.sc-about-section {
+  padding: 4.5rem 0;
+}
+
+.sc-about-section-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 3.25rem;
+}
+
+.sc-about-section-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--about-blue);
+  margin-bottom: 0.6rem;
+}
+
+.sc-about-section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+  font-weight: 800;
+  color: var(--about-navy);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.015em;
+}
+
+.sc-about-section-desc {
+  font-size: 1.02rem;
+  color: var(--about-text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.sc-about-three-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.sc-about-feature-card {
+  background: #FFFFFF;
+  border: 1px solid var(--about-border);
+  border-radius: var(--about-radius-lg);
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--about-shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sc-about-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--about-shadow-md);
+  border-color: rgba(20, 125, 245, 0.3);
+}
+
+.sc-about-card-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--about-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.35rem;
+  flex-shrink: 0;
+}
+
+.sc-about-card-icon-wrap.blue {
+  background: var(--about-blue-tint);
+  color: var(--about-blue);
+}
+
+.sc-about-card-icon-wrap.purple {
+  background: var(--about-purple-tint);
+  color: var(--about-purple);
+}
+
+.sc-about-card-icon-wrap.green {
+  background: var(--about-green-tint);
+  color: var(--about-green);
+}
+
+.sc-about-feature-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--about-navy);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+}
+
+.sc-about-feature-card p {
+  font-size: 0.94rem;
+  color: var(--about-text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+   3. WHY WE BUILT SLEEPCARE AI (MOTIVATION)
+   ------------------------------------------------------------------------- */
+.sc-about-motivation-section {
+  padding: 4.5rem 0;
+  background: #F8FAFC;
+  border-top: 1px solid #EEF2F6;
+  border-bottom: 1px solid #EEF2F6;
+}
+
+.sc-about-motivation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.sc-about-motivation-left h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  color: var(--about-navy);
+  margin-bottom: 1rem;
+}
+
+.sc-about-motivation-left p {
+  font-size: 1.02rem;
+  color: var(--about-text-muted);
+  line-height: 1.7;
+}
+
+.sc-about-motivation-pills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.sc-about-pill-item {
+  background: #FFFFFF;
+  border: 1px solid var(--about-border);
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem;
+  box-shadow: 0 2px 8px rgba(7, 29, 59, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sc-about-pill-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.sc-about-pill-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--about-blue);
+  flex-shrink: 0;
+}
+
+.sc-about-pill-item h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--about-navy);
+  margin: 0;
+}
+
+.sc-about-pill-item p {
+  font-size: 0.88rem;
+  color: var(--about-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+   4. HOW IT WORKS
+   ------------------------------------------------------------------------- */
+.sc-about-how-section {
+  padding: 5rem 0;
+  background: #FFFFFF;
+}
+
+.sc-about-steps-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.sc-about-step-card {
+  flex: 1;
+  text-align: center;
+  max-width: 220px;
+  position: relative;
+}
+
+.sc-about-step-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--about-blue);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.sc-about-step-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--about-blue-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  color: var(--about-blue);
+  transition: transform 0.3s ease;
+}
+
+.sc-about-step-card:hover .sc-about-step-icon {
+  transform: scale(1.08);
+}
+
+.sc-about-step-card h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--about-navy);
+  margin-bottom: 0.45rem;
+}
+
+.sc-about-step-card p {
+  font-size: 0.88rem;
+  color: var(--about-text-muted);
+  line-height: 1.55;
+  margin: 0;
+  padding: 0 0.25rem;
+}
+
+.sc-about-step-arrow {
+  color: #CBD5E1;
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------------------
+   5. OUR AI CAPABILITIES (2 Cards)
+   ------------------------------------------------------------------------- */
+.sc-about-ai-section {
+  padding: 4.5rem 0 5rem;
+  background: #F8FAFC;
+  border-top: 1px solid #EEF2F6;
+}
+
+.sc-about-ai-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.sc-about-ai-card {
+  background: #FFFFFF;
+  border: 1px solid var(--about-border);
+  border-radius: var(--about-radius-lg);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--about-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.sc-about-ai-card:hover {
+  box-shadow: var(--about-shadow-md);
+  border-color: rgba(20, 125, 245, 0.25);
+}
+
+.sc-about-ai-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-bottom: 1.75rem;
+}
+
+.sc-about-ai-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sc-about-ai-icon-circle.blue {
+  background: var(--about-blue-tint);
+  color: var(--about-blue);
+}
+
+.sc-about-ai-icon-circle.purple {
+  background: var(--about-purple-tint);
+  color: var(--about-purple);
+}
+
+.sc-about-ai-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--about-navy);
+  margin-bottom: 0.35rem;
+}
+
+.sc-about-ai-card .card-subtitle {
+  font-size: 0.9rem;
+  color: var(--about-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Quality Demo Box */
+.sc-about-demo-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.sc-about-quality-demo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+}
+
+.sc-about-ring-meter {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 6px solid #147DF5;
+  border-top-color: #5BB8FF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(20, 125, 245, 0.12);
+  flex-shrink: 0;
+}
+
+.sc-about-ring-score {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--about-navy);
+  line-height: 1;
+}
+
+.sc-about-ring-max {
+  font-size: 0.72rem;
+  color: var(--about-text-light);
+  font-weight: 600;
+}
+
+.sc-about-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.sc-about-badge-good {
+  align-self: flex-start;
+  background: #ECFDF5;
+  color: #059669;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.35rem;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.sc-about-check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.sc-about-check-item svg {
+  color: var(--about-blue);
+  flex-shrink: 0;
+}
+
+/* Disorder Probabilities Demo Box */
+.sc-about-disorder-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.sc-about-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sc-about-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--about-navy);
+}
+
+.sc-about-bar-pct {
+  color: #475569;
+  font-weight: 700;
+}
+
+.sc-about-bar-track {
+  width: 100%;
+  height: 8px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.sc-about-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.sc-about-bar-fill.blue {
+  background: linear-gradient(90deg, #147DF5, #5BB8FF);
+}
+
+.sc-about-bar-fill.purple {
+  background: linear-gradient(90deg, #8B5CF6, #C084FC);
+}
+
+.sc-about-bar-fill.red {
+  background: linear-gradient(90deg, #F43F5E, #FB7185);
+}
+
+.sc-about-illustrative-tag {
+  font-size: 0.75rem;
+  color: var(--about-text-light);
+  font-style: italic;
+  margin-top: 0.75rem;
+  text-align: right;
+  display: block;
+}
+
+.sc-about-card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.sc-about-card-btn.sc-btn-blue {
+  background: var(--about-blue);
+  color: #FFFFFF !important;
+}
+
+.sc-about-card-btn.sc-btn-blue:hover {
+  background: #106cd8;
+}
+
+.sc-about-card-btn.sc-btn-purple {
+  background: #7C3AED;
+  color: #FFFFFF !important;
+}
+
+.sc-about-card-btn.sc-btn-purple:hover {
+  background: #6D28D9;
+}
+
+/* -------------------------------------------------------------------------
+   6. EXPLAINABLE AI SECTION
+   ------------------------------------------------------------------------- */
+.sc-about-explain-section {
+  padding: 5rem 0;
+  background: #FFFFFF;
+}
+
+.sc-about-explain-card {
+  background: #F8FAFC;
+  border: 1px solid var(--about-border);
+  border-radius: var(--about-radius-lg);
+  padding: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sc-about-explain-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.sc-about-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.sc-about-feature-name {
+  width: 140px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--about-navy);
+  flex-shrink: 0;
+}
+
+.sc-about-feature-bar-wrap {
+  flex: 1;
+  background: #E2E8F0;
+  height: 12px;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sc-about-feature-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+.sc-about-feature-val {
+  width: 130px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.sc-about-feature-val.positive {
+  color: #059669;
+}
+
+.sc-about-feature-val.negative {
+  color: #E11D48;
+}
+
+.sc-about-disclaimer-note {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.sc-about-disclaimer-note svg {
+  color: var(--about-blue);
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------------------
+   7. TECHNOLOGY SECTION (Compact Badges)
+   ------------------------------------------------------------------------- */
+.sc-about-tech-section {
+  padding: 3.5rem 0;
+  background: #F8FAFC;
+  border-top: 1px solid #EEF2F6;
+  text-align: center;
+}
+
+.sc-about-tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 800px;
+  margin: 1.5rem auto 0;
+}
+
+.sc-about-tech-badge {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 9999px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1E293B;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* -------------------------------------------------------------------------
+   8. RESPONSIBLE AI (One Simple Card)
+   ------------------------------------------------------------------------- */
+.sc-about-responsible-section {
+  padding: 3.5rem 0;
+  background: #FFFFFF;
+}
+
+.sc-about-responsible-card {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-left: 5px solid var(--about-blue);
+  border-radius: 16px;
+  padding: 1.6rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.sc-about-responsible-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--about-blue-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--about-blue);
+  flex-shrink: 0;
+}
+
+.sc-about-responsible-text {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+   9. FINAL CTA SECTION
+   ------------------------------------------------------------------------- */
+.sc-about-final-cta {
+  padding: 5rem 0 6rem;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%);
+  text-align: center;
+}
+
+.sc-about-cta-box {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sc-about-cta-box h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--about-navy);
+  margin-bottom: 0.85rem;
+}
+
+.sc-about-cta-box p {
+  font-size: 1.05rem;
+  color: var(--about-text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .sc-about-hero-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sc-about-hero-left {
+    max-width: 100%;
+  }
+
+  .sc-about-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sc-about-hero-buttons {
+    justify-content: center;
+  }
+
+  .sc-about-three-cards {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .sc-about-motivation-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .sc-about-steps-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .sc-about-step-arrow {
+    transform: rotate(90deg);
+    padding-top: 0;
+  }
+
+  .sc-about-step-card {
+    max-width: 320px;
+  }
+
+  .sc-about-ai-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .sc-about-hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .sc-about-hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sc-about-btn-primary,
+  .sc-about-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sc-about-motivation-pills {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-about-quality-demo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sc-about-badge-good {
+    align-self: center;
+  }
+
+  .sc-about-feature-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .sc-about-feature-bar-wrap {
+    width: 100%;
+  }
+
+  .sc-about-feature-val {
+    width: 100%;
+    text-align: left;
+  }
+
+  .sc-about-responsible-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}

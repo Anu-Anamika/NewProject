@@ -1,0 +1,511 @@
+/* =========================================================================
+   SleepCare AI — Design tokens
+   Calm clinical palette: deep slate blue + teal accent on a soft, airy
+   background. Poppins for headings (friendly but professional), Inter for
+   body copy (clean, highly legible for forms and data).
+   ========================================================================= */
+:root {
+  --sca-bg: #F5F8F9;
+  --sca-surface: #FFFFFF;
+  --sca-primary: #1B4B66;
+  --sca-primary-dark: #123244;
+  --sca-accent: #3FA796;
+  --sca-accent-dark: #2E8377;
+  --sca-accent-soft: #E7F5F2;
+  --sca-warn: #C97A2B;
+  --sca-warn-soft: #FBEEE0;
+  --sca-danger: #C0392B;
+  --sca-text: #1F2933;
+  --sca-muted: #64748B;
+  --sca-border: #E1E8EC;
+  --sca-radius: 16px;
+  --sca-radius-sm: 10px;
+  --sca-shadow: 0 6px 24px rgba(27, 75, 102, 0.08);
+  --sca-shadow-sm: 0 2px 10px rgba(27, 75, 102, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--sca-bg);
+  color: var(--sca-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  color: var(--sca-primary);
+  font-weight: 600;
+}
+
+a { color: var(--sca-accent-dark); }
+
+/* ---------------------------------------------------------------------- */
+/* Navbar                                                                  */
+/* ---------------------------------------------------------------------- */
+.sca-navbar {
+  background: var(--sca-surface);
+  border-bottom: 1px solid var(--sca-border);
+  padding-top: .85rem;
+  padding-bottom: .85rem;
+}
+
+.sca-brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--sca-primary) !important;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.sca-brand-icon {
+  display: inline-flex;
+  color: var(--sca-accent);
+}
+
+.sca-brand-accent { color: var(--sca-accent); }
+
+.navbar-nav .nav-link {
+  color: var(--sca-muted);
+  font-weight: 500;
+  padding: .5rem 1rem !important;
+  border-radius: 999px;
+  transition: all .15s ease;
+}
+
+.navbar-nav .nav-link:hover { color: var(--sca-primary); background: var(--sca-bg); }
+
+.navbar-nav .nav-link.active {
+  color: var(--sca-primary);
+  background: var(--sca-accent-soft);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Hero (Home page)                                                        */
+/* ---------------------------------------------------------------------- */
+.sca-hero {
+  background: linear-gradient(180deg, #EAF4F3 0%, var(--sca-bg) 100%);
+  padding: 4.5rem 0 3rem;
+  border-bottom: 1px solid var(--sca-border);
+}
+
+.sca-hero-eyebrow {
+  font-size: .75rem;
+  letter-spacing: .12em;
+  font-weight: 600;
+  color: var(--sca-accent-dark);
+  margin-bottom: .75rem;
+}
+
+.sca-hero-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.sca-hero-subtitle {
+  color: var(--sca-muted);
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Choice cards (Home page)                                                */
+/* ---------------------------------------------------------------------- */
+.sca-cards-section { padding: 3rem 0 1rem; }
+
+.sca-choice-card {
+  display: block;
+  background: var(--sca-surface);
+  border: 1px solid var(--sca-border);
+  border-radius: var(--sca-radius);
+  padding: 2.25rem 2rem;
+  height: 100%;
+  color: var(--sca-text);
+  box-shadow: var(--sca-shadow-sm);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.sca-choice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sca-shadow);
+  border-color: var(--sca-accent);
+}
+
+.sca-choice-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: #fff;
+}
+
+.sca-icon-quality { background: linear-gradient(135deg, var(--sca-primary), #2C6E90); }
+.sca-icon-disorder { background: linear-gradient(135deg, var(--sca-accent-dark), var(--sca-accent)); }
+
+.sca-choice-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: .5rem;
+}
+
+.sca-choice-card p {
+  color: var(--sca-muted);
+  margin-bottom: 1.25rem;
+}
+
+.sca-choice-cta {
+  font-weight: 600;
+  color: var(--sca-accent-dark);
+}
+
+.sca-inline-disclaimer {
+  max-width: 640px;
+  margin: 2rem auto 0;
+  text-align: center;
+  background: var(--sca-warn-soft);
+  color: var(--sca-warn);
+  border-radius: var(--sca-radius-sm);
+  padding: .75rem 1.25rem;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------------------- */
+/* "How it works" steps                                                    */
+/* ---------------------------------------------------------------------- */
+.sca-how-section { padding: 3rem 0 4rem; }
+
+.sca-step-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--sca-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin: 0 auto .9rem;
+}
+
+.sca-step h5 { font-size: 1.05rem; }
+.sca-step p { color: var(--sca-muted); font-size: .92rem; }
+
+/* ---------------------------------------------------------------------- */
+/* Page header (prediction / about pages)                                  */
+/* ---------------------------------------------------------------------- */
+.sca-page-header {
+  background: var(--sca-surface);
+  border-bottom: 1px solid var(--sca-border);
+  padding: 2.75rem 0 2rem;
+}
+
+.sca-page-header h1 {
+  font-size: 1.9rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.sca-page-icon { color: var(--sca-accent); }
+
+.sca-page-header p {
+  color: var(--sca-muted);
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Cards (shared)                                                          */
+/* ---------------------------------------------------------------------- */
+.sca-card {
+  background: var(--sca-surface);
+  border: 1px solid var(--sca-border);
+  border-radius: var(--sca-radius);
+  box-shadow: var(--sca-shadow-sm);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.sca-form-section { padding: 2.5rem 0 4rem; }
+
+/* ---------------------------------------------------------------------- */
+/* Forms                                                                   */
+/* ---------------------------------------------------------------------- */
+.sca-form-card .form-label {
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--sca-primary);
+  margin-bottom: .35rem;
+}
+
+.sca-unit {
+  font-weight: 400;
+  color: var(--sca-muted);
+  font-size: .8rem;
+}
+
+.form-control, .form-select {
+  border-radius: var(--sca-radius-sm);
+  border: 1px solid var(--sca-border);
+  padding: .6rem .85rem;
+  font-size: .95rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--sca-accent);
+  box-shadow: 0 0 0 .2rem rgba(63, 167, 150, .18);
+}
+
+.sca-field-error {
+  color: var(--sca-danger);
+  font-size: .8rem;
+  margin-top: .25rem;
+}
+
+.sca-submit-btn {
+  margin-top: 1.75rem;
+  width: 100%;
+  padding: .75rem 1rem;
+  font-weight: 600;
+}
+
+.sca-btn-primary {
+  background: var(--sca-primary);
+  border: none;
+  color: #fff;
+  border-radius: var(--sca-radius-sm);
+  transition: background .15s ease;
+}
+
+.sca-btn-primary:hover { background: var(--sca-primary-dark); color: #fff; }
+
+.sca-btn-secondary {
+  background: var(--sca-accent-soft);
+  border: 1px solid var(--sca-accent);
+  color: var(--sca-accent-dark);
+  border-radius: var(--sca-radius-sm);
+  font-weight: 600;
+  padding: .6rem 1rem;
+  transition: background .15s ease;
+}
+
+.sca-btn-secondary:hover { background: var(--sca-accent); color: #fff; }
+
+/* ---------------------------------------------------------------------- */
+/* Result cards                                                            */
+/* ---------------------------------------------------------------------- */
+.sca-placeholder-card {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--sca-muted);
+}
+
+.sca-placeholder-icon {
+  font-size: 2.5rem;
+  color: var(--sca-border);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.sca-placeholder-card h5 { color: var(--sca-primary); }
+
+.sca-result-card {
+  border-top: 5px solid var(--sca-accent);
+  animation: sca-fade-in .35s ease;
+}
+
+.sca-result-poor { border-top-color: var(--sca-warn); }
+.sca-result-disorder { border-top-color: var(--sca-primary); }
+
+@keyframes sca-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sca-result-label {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--sca-muted);
+  margin-bottom: .4rem;
+}
+
+.sca-result-headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sca-primary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.sca-confidence-block { margin-bottom: 1.25rem; }
+
+.sca-confidence-label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--sca-accent-dark);
+  margin-bottom: .4rem;
+}
+
+.sca-progress {
+  background: var(--sca-bg);
+  border-radius: 999px;
+  height: 12px;
+  overflow: hidden;
+  border: 1px solid var(--sca-border);
+}
+
+.sca-progress-sm { height: 8px; }
+
+.sca-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--sca-accent), var(--sca-primary));
+  border-radius: 999px;
+  transition: width .6s ease;
+}
+
+.sca-confidence-value {
+  margin-top: .4rem;
+  font-weight: 700;
+  color: var(--sca-primary);
+  font-size: 1.1rem;
+}
+
+.sca-interpretation {
+  font-size: .95rem;
+  margin-bottom: .9rem;
+}
+
+.sca-small-disclaimer {
+  font-size: .8rem;
+  color: var(--sca-muted);
+  background: var(--sca-bg);
+  border-radius: var(--sca-radius-sm);
+  padding: .7rem .9rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Probability table (Sleep Disorder page) */
+.sca-prob-table-label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--sca-accent-dark);
+  margin-bottom: .6rem;
+}
+
+.sca-prob-table { margin-bottom: 1.25rem; }
+
+.sca-prob-row { margin-bottom: .75rem; }
+
+.sca-prob-row-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: .88rem;
+  margin-bottom: .3rem;
+}
+
+.sca-prob-row-highlight .sca-prob-row-top {
+  font-weight: 700;
+  color: var(--sca-primary);
+}
+
+/* ---------------------------------------------------------------------- */
+/* About page                                                              */
+/* ---------------------------------------------------------------------- */
+.sca-about-section { padding: 2.5rem 0 4rem; }
+
+.sca-about-card h4 {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: .6rem;
+}
+
+.sca-about-card h4 i { color: var(--sca-accent); }
+
+.sca-about-card p {
+  color: var(--sca-text);
+  margin-bottom: 0;
+  font-size: .95rem;
+}
+
+.sca-about-disclaimer-card {
+  background: var(--sca-warn-soft);
+  border-color: #F0D9BB;
+}
+
+.sca-about-disclaimer-card h4 i { color: var(--sca-warn); }
+
+.sca-summary-card { position: sticky; top: 90px; }
+
+.sca-summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: .9rem;
+}
+
+.sca-summary-list li {
+  padding: .4rem 0;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--sca-text);
+  border-bottom: 1px dashed var(--sca-border);
+}
+
+.sca-summary-list li:last-child { border-bottom: none; }
+
+.sca-summary-list i { color: var(--sca-accent); }
+
+/* ---------------------------------------------------------------------- */
+/* Footer                                                                   */
+/* ---------------------------------------------------------------------- */
+.sca-footer {
+  background: var(--sca-primary-dark);
+  color: #C9D8E0;
+  padding: 1.75rem 0;
+  margin-top: 2rem;
+}
+
+.sca-disclaimer {
+  text-align: center;
+  font-size: .85rem;
+  font-weight: 500;
+  color: #F4D9B6;
+  margin-bottom: .6rem;
+}
+
+.sca-footer-note {
+  text-align: center;
+  font-size: .78rem;
+  color: #8CA5B3;
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Responsive                                                               */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .sca-hero-title { font-size: 2rem; }
+  .sca-hero { padding: 3rem 0 2rem; }
+  .sca-summary-card { position: static; }
+}

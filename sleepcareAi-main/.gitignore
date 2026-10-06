@@ -1,0 +1,35 @@
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Environment and Secrets
+.env
+.env.*
+passwords.txt
+secrets.json
+
+# Node / Frontend
+node_modules/
+dist/
+npm-debug.log*
+
+# ML / Experiment artifacts
+runs/
+wandb/
+
+# IDE / OS
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db

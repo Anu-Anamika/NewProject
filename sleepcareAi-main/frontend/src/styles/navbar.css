@@ -1,0 +1,453 @@
+/* ==========================================================================
+   SleepCare AI — Centralized Shared Navbar Stylesheet
+   Dedicated Namespace: .sc-navbar*
+   ========================================================================== */
+
+.sc-navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #EAF1FA;
+  box-shadow: 0 2px 10px rgba(7, 29, 59, 0.04);
+  transition: all 0.2s ease;
+}
+
+.sc-navbar__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.75rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Logo Section
+   -------------------------------------------------------------------------- */
+.sc-navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #071D3B;
+  text-decoration: none;
+  letter-spacing: -0.015em;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.sc-navbar__logo:hover {
+  opacity: 0.92;
+}
+
+.sc-navbar__logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sc-navbar__logo-text {
+  color: #071D3B;
+  font-weight: 700;
+}
+
+.sc-navbar__logo-accent {
+  color: #147DF5;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Center Navigation Links
+   -------------------------------------------------------------------------- */
+.sc-navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sc-navbar__link {
+  color: #475569;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.sc-navbar__link:hover {
+  color: #147DF5;
+  background-color: rgba(20, 125, 245, 0.06);
+}
+
+.sc-navbar__link.active {
+  color: #147DF5;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.sc-navbar__link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 2.5px;
+  background-color: #147DF5;
+  border-radius: 9999px;
+}
+
+/* --------------------------------------------------------------------------
+   Predict Dropdown
+   -------------------------------------------------------------------------- */
+.sc-navbar__dropdown {
+  position: relative;
+}
+
+.sc-navbar__dropdown-trigger {
+  color: #475569;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.sc-navbar__dropdown-trigger:hover,
+.sc-navbar__dropdown-trigger.has-active {
+  color: #147DF5;
+  background-color: rgba(20, 125, 245, 0.06);
+}
+
+.sc-navbar__dropdown-trigger.has-active {
+  font-weight: 600;
+}
+
+.sc-navbar__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 220px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCE8F5;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(7, 29, 59, 0.12);
+  padding: 0.5rem;
+  list-style: none;
+  margin: 0;
+  z-index: 1010;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+.sc-navbar__dropdown-menu.show,
+.sc-navbar__dropdown:hover .sc-navbar__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.sc-navbar__dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  color: #10254A;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  width: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.sc-navbar__dropdown-item:hover {
+  background-color: #F0F7FF;
+  color: #147DF5;
+}
+
+.sc-navbar__dropdown-item.active {
+  background-color: #EFF6FF;
+  color: #147DF5;
+  font-weight: 600;
+}
+
+.sc-navbar__dropdown-divider {
+  height: 1px;
+  background-color: #EDF2F7;
+  margin: 0.4rem 0;
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   Right Actions (Dashboard & User Profile / Login)
+   -------------------------------------------------------------------------- */
+.sc-navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.sc-navbar__dash-link {
+  color: #147DF5;
+  background-color: rgba(20, 125, 245, 0.08);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.15s ease;
+}
+
+.sc-navbar__dash-link:hover,
+.sc-navbar__dash-link.active {
+  background-color: #147DF5;
+  color: #FFFFFF;
+}
+
+.sc-navbar__profile {
+  position: relative;
+}
+
+.sc-navbar__profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.45rem;
+  border-radius: 9999px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #10254A;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.sc-navbar__profile-trigger:hover {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+}
+
+.sc-navbar__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #147DF5;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.sc-navbar__username {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #10254A;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sc-navbar__profile-menu {
+  right: 0;
+  left: auto;
+  min-width: 210px;
+}
+
+.sc-navbar__logout-btn {
+  color: #EF4444;
+}
+
+.sc-navbar__logout-btn:hover {
+  background-color: #FEF2F2;
+  color: #DC2626;
+}
+
+/* Unauthenticated Buttons */
+.sc-navbar__btn-login {
+  color: #071D3B;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.sc-navbar__btn-login:hover {
+  color: #147DF5;
+  background-color: rgba(20, 125, 245, 0.06);
+}
+
+.sc-navbar__btn-signup {
+  background-color: #147DF5;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1.15rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.sc-navbar__btn-signup:hover {
+  background-color: #0C6ADC;
+  box-shadow: 0 4px 12px rgba(20, 125, 245, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Hamburger Toggle
+   -------------------------------------------------------------------------- */
+.sc-navbar__toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #071D3B;
+  padding: 0.4rem;
+  cursor: pointer;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-navbar__toggle:hover {
+  background-color: #F1F5F9;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .sc-navbar__container {
+    padding: 0.65rem 4%;
+  }
+
+  .sc-navbar__toggle {
+    display: flex;
+  }
+
+  .sc-navbar__links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #DCE8F5;
+    box-shadow: 0 16px 32px rgba(7, 29, 59, 0.1);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1.5rem;
+    gap: 0.4rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .sc-navbar__links.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .sc-navbar__link {
+    padding: 0.75rem 1rem;
+    font-size: 0.98rem;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  .sc-navbar__link.active::after {
+    display: none;
+  }
+
+  .sc-navbar__link.active {
+    background-color: #EFF6FF;
+  }
+
+  .sc-navbar__dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    font-size: 0.98rem;
+    border-radius: 10px;
+  }
+
+  .sc-navbar__dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: 1px solid #E2E8F0;
+    margin: 0.35rem 0 0.5rem 0.5rem;
+    width: calc(100% - 0.5rem);
+    display: none;
+  }
+
+  .sc-navbar__dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .sc-navbar__right {
+    gap: 0.5rem;
+  }
+
+  .sc-navbar__username {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .sc-navbar__btn-signup {
+    display: none;
+  }
+}

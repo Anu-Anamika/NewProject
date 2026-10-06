@@ -1,0 +1,702 @@
+/* =========================================================================
+   SleepCare AI — Home Page Stylesheet
+   Matches Reference Design: Dark navy hero with woman sleeping visual,
+   glowing crescent moon, floating glassmorphic cards, curved wave transition,
+   4 feature cards, and simple 4-step workflow.
+   ========================================================================= */
+
+.sca-home-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* -------------------------------------------------------------------------
+   1. HERO SECTION
+   ------------------------------------------------------------------------- */
+.sca-home-hero {
+  background: linear-gradient(165deg, #071D3B 0%, #0D2847 45%, #102F56 100%);
+  color: #FFFFFF;
+  padding: 4.5rem 0 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 580px;
+}
+
+/* Ambient glow orbs */
+.sca-home-hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(20, 125, 245, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sca-home-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(91, 184, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sca-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sca-hero-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.5rem;
+}
+
+/* Hero Left Column */
+.sca-hero-left {
+  flex: 1.1;
+  max-width: 580px;
+}
+
+.sca-home-eyebrow {
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #5BB8FF;
+  margin-bottom: 1.1rem;
+  text-transform: uppercase;
+}
+
+.sca-home-title {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: clamp(2.4rem, 4.3vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin-bottom: 1.35rem;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.sca-home-title .sca-highlight {
+  color: #5BB8FF;
+}
+
+.sca-home-desc {
+  font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.7;
+  margin-bottom: 2.25rem;
+  max-width: 520px;
+}
+
+/* Hero CTA Buttons */
+.sca-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.75rem;
+}
+
+.sca-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #147DF5;
+  color: #FFFFFF !important;
+  padding: 0.85rem 1.65rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.96rem;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(20, 125, 245, 0.38);
+}
+
+.sca-cta-primary:hover {
+  background: #106cd8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(20, 125, 245, 0.5);
+}
+
+.sca-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF !important;
+  padding: 0.85rem 1.65rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.96rem;
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sca-cta-secondary:hover {
+  border-color: #5BB8FF;
+  color: #5BB8FF !important;
+  background: rgba(20, 125, 245, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Trust Indicators */
+.sca-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sca-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.sca-trust-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #5BB8FF;
+  flex-shrink: 0;
+}
+
+.sca-trust-text strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.sca-trust-text span {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* Hero Right Column (Visual) */
+.sca-hero-right {
+  flex: 0.95;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sca-hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Handwritten cursive script "Good sleep brighter days" */
+.sca-hero-script {
+  position: absolute;
+  top: -24px;
+  left: 20%;
+  z-index: 5;
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  transform: rotate(-7deg);
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  user-select: none;
+}
+
+.sca-hero-script span {
+  display: block;
+  padding-left: 1rem;
+}
+
+/* Floating crescent moon */
+.sca-hero-moon-svg {
+  position: absolute;
+  top: -25px;
+  right: 14%;
+  width: 70px;
+  height: 70px;
+  z-index: 3;
+  filter: drop-shadow(0 0 20px rgba(91, 184, 255, 0.6));
+  pointer-events: none;
+}
+
+/* Main Sleeping Woman Image Wrap */
+.sca-hero-image-wrap {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #071D3B;
+}
+
+.sca-hero-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+/* Glassmorphism Floating Cards */
+.sca-glass-card {
+  position: absolute;
+  background: rgba(10, 31, 62, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 0.9rem 1.15rem;
+  color: #FFFFFF;
+  z-index: 4;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.sca-glass-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Glass Card 1: Sleep Quality */
+.sca-glass-quality {
+  top: 9%;
+  right: -24px;
+  min-width: 185px;
+}
+
+.sca-glass-card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.55rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sca-glass-score-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.sca-glass-circle {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sca-glass-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sca-glass-info-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.sca-glass-bars {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 22px;
+}
+
+.sca-glass-bar {
+  width: 4px;
+  border-radius: 2px;
+  background: #5BB8FF;
+}
+
+/* Glass Card 2: Sleep Disorder Risk */
+.sca-glass-disorder {
+  bottom: 14%;
+  right: -16px;
+  min-width: 175px;
+}
+
+.sca-glass-risk-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sca-glass-shield-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ADE80;
+}
+
+.sca-glass-risk-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #4ADE80;
+}
+
+/* Floating quote in hero visual */
+.sca-hero-quote {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-style: italic;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.82);
+  text-align: right;
+  z-index: 3;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  max-width: 260px;
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------------------------
+   WAVE DIVIDER
+   ------------------------------------------------------------------------- */
+.sca-hero-wave {
+  position: relative;
+  margin-top: 2rem;
+  z-index: 2;
+  line-height: 0;
+}
+
+.sca-hero-wave svg {
+  display: block;
+  width: 100%;
+  height: 85px;
+}
+
+/* -------------------------------------------------------------------------
+   2. FEATURE CARDS SECTION (4 in a row)
+   ------------------------------------------------------------------------- */
+.sca-features-section {
+  padding: 4.5rem 0 4rem;
+  background: #F7FBFF;
+}
+
+.sca-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+.sca-feature-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 2.1rem 1.6rem 1.85rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(7, 29, 59, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.sca-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 34px rgba(7, 29, 59, 0.08);
+  border-color: rgba(20, 125, 245, 0.28);
+}
+
+.sca-feature-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #EBF5FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #147DF5;
+  margin-bottom: 1.35rem;
+  flex-shrink: 0;
+}
+
+.sca-feature-card h3 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #071D3B;
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
+}
+
+.sca-feature-card p {
+  font-size: 0.92rem;
+  color: #64748B;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* -------------------------------------------------------------------------
+   3. HOW SLEEPCARE AI WORKS SECTION
+   ------------------------------------------------------------------------- */
+.sca-how-section-new {
+  padding: 5.5rem 0 6.5rem;
+  background: #FFFFFF;
+}
+
+.sca-how-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+.sca-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sca-section-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #147DF5;
+  margin-bottom: 0.6rem;
+}
+
+.sca-section-title {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  font-weight: 800;
+  color: #071D3B;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+}
+
+.sca-section-title .sca-highlight {
+  color: #147DF5;
+}
+
+.sca-section-subtitle {
+  font-size: 1.05rem;
+  color: #64748B;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Steps row */
+.sca-steps-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sca-step-item {
+  text-align: center;
+  flex: 1;
+  max-width: 230px;
+  position: relative;
+}
+
+.sca-step-icon-wrap {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #EBF5FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  color: #147DF5;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+}
+
+.sca-step-item:hover .sca-step-icon-wrap {
+  transform: scale(1.08);
+  background: #D9EDFF;
+}
+
+.sca-step-item h4 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #071D3B;
+  margin-bottom: 0.5rem;
+}
+
+.sca-step-item p {
+  font-size: 0.9rem;
+  color: #64748B;
+  line-height: 1.6;
+  padding: 0 0.4rem;
+  margin: 0;
+}
+
+/* Connector arrows between steps */
+.sca-step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1.6rem;
+  color: #94A3B8;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* -------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .sca-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sca-glass-quality {
+    right: -10px;
+  }
+  .sca-glass-disorder {
+    right: -5px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sca-hero-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .sca-hero-left {
+    max-width: 100%;
+  }
+
+  .sca-home-desc {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sca-hero-ctas {
+    justify-content: center;
+  }
+
+  .sca-trust-row {
+    justify-content: center;
+  }
+
+  .sca-hero-right {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .sca-hero-visual {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sca-home-hero {
+    padding: 3.5rem 0 0;
+  }
+
+  .sca-features-grid {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+  }
+
+  .sca-steps-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .sca-step-arrow {
+    transform: rotate(90deg);
+    padding-top: 0;
+  }
+
+  .sca-step-item {
+    max-width: 320px;
+  }
+
+  .sca-glass-quality {
+    right: 0;
+    top: 5%;
+  }
+
+  .sca-glass-disorder {
+    right: 0;
+    bottom: 8%;
+  }
+
+  .sca-hero-script {
+    font-size: 1.75rem;
+    left: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sca-home-hero {
+    padding: 2.5rem 0 0;
+  }
+
+  .sca-hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sca-cta-primary,
+  .sca-cta-secondary {
+    justify-content: center;
+  }
+
+  .sca-trust-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+  }
+
+  .sca-glass-card {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .sca-glass-quality {
+    min-width: 150px;
+  }
+
+  .sca-glass-disorder {
+    min-width: 140px;
+  }
+
+  .sca-hero-quote {
+    position: static;
+    text-align: center;
+    margin: 1rem auto 0;
+  }
+}

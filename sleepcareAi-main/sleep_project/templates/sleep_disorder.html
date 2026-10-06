@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% block title %}Sleep Disorder Prediction — SleepCare AI{% endblock %}
+{% block nav_disorder %}active{% endblock %}
+
+{% block content %}
+<section class="sca-page-header">
+  <div class="container">
+    <h1><i class="bi bi-activity sca-page-icon"></i> Sleep Disorder Prediction</h1>
+    <p>Fill in the fields below to estimate the most likely sleep disorder category.</p>
+  </div>
+</section>
+
+<section class="container sca-form-section">
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <div class="sca-card sca-form-card">
+        {% if model_error %}
+          <div class="alert alert-danger" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i> {{ model_error }}
+          </div>
+        {% endif %}
+        {% if form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+          </div>
+        {% endif %}
+
+        <form method="post" novalidate id="sleepDisorderForm">
+          {% csrf_token %}
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.gender.id_for_label }}">Gender</label>
+              {{ form.gender }}
+              {% if form.gender.errors %}<div class="sca-field-error">{{ form.gender.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.age.id_for_label }}">Age <span class="sca-unit">(years)</span></label>
+              {{ form.age }}
+              {% if form.age.errors %}<div class="sca-field-error">{{ form.age.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.occupation.id_for_label }}">Occupation</label>
+              {{ form.occupation }}
+              {% if form.occupation.errors %}<div class="sca-field-error">{{ form.occupation.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.sleep_duration.id_for_label }}">Sleep Duration <span class="sca-unit">(hours)</span></label>
+              {{ form.sleep_duration }}
+              {% if form.sleep_duration.errors %}<div class="sca-field-error">{{ form.sleep_duration.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.physical_activity_level.id_for_label }}">Physical Activity Level <span class="sca-unit">(minutes/day)</span></label>
+              {{ form.physical_activity_level }}
+              {% if form.physical_activity_level.errors %}<div class="sca-field-error">{{ form.physical_activity_level.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.stress_level.id_for_label }}">Stress Level <span class="sca-unit">(1-10)</span></label>
+              {{ form.stress_level }}
+              {% if form.stress_level.errors %}<div class="sca-field-error">{{ form.stress_level.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.bmi_category.id_for_label }}">BMI Category</label>
+              {{ form.bmi_category }}
+              {% if form.bmi_category.errors %}<div class="sca-field-error">{{ form.bmi_category.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.heart_rate.id_for_label }}">Heart Rate <span class="sca-unit">(bpm)</span></label>
+              {{ form.heart_rate }}
+              {% if form.heart_rate.errors %}<div class="sca-field-error">{{ form.heart_rate.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.daily_steps.id_for_label }}">Daily Steps <span class="sca-unit">(steps/day)</span></label>
+              {{ form.daily_steps }}
+              {% if form.daily_steps.errors %}<div class="sca-field-error">{{ form.daily_steps.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.systolic_bp.id_for_label }}">Systolic Blood Pressure <span class="sca-unit">(mmHg)</span></label>
+              {{ form.systolic_bp }}
+              {% if form.systolic_bp.errors %}<div class="sca-field-error">{{ form.systolic_bp.errors.0 }}</div>{% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.diastolic_bp.id_for_label }}">Diastolic Blood Pressure <span class="sca-unit">(mmHg)</span></label>
+              {{ form.diastolic_bp }}
+              {% if form.diastolic_bp.errors %}<div class="sca-field-error">{{ form.diastolic_bp.errors.0 }}</div>{% endif %}
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn sca-btn-primary sca-submit-btn">
+            <i class="bi bi-graph-up-arrow"></i> Predict Sleep Disorder
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      {% if result %}
+      <div class="sca-card sca-result-card sca-result-disorder" id="resultCard">
+        <div class="sca-result-label">Predicted Sleep Disorder</div>
+        <div class="sca-result-headline"><i class="bi bi-clipboard2-pulse"></i> {{ result.label|upper }}</div>
+
+        <div class="sca-prob-table-label">
+          {% if result.is_calibrated %}Calibrated Probabilities{% else %}Model-Estimated Probabilities{% endif %}
+        </div>
+        <div class="sca-prob-table">
+          {% for item in result.class_probabilities %}
+          <div class="sca-prob-row {% if item.label == result.label %}sca-prob-row-highlight{% endif %}">
+            <div class="sca-prob-row-top">
+              <span>{{ item.label }}</span>
+              <span>{{ item.probability }}%</span>
+            </div>
+            <div class="sca-progress sca-progress-sm">
+              <div class="sca-progress-bar" style="width: {{ item.probability }}%;"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <p class="sca-interpretation">
+          Model confidence: <strong>{{ result.confidence }}%</strong>.
+          This is a model-estimated probability, not a medical certainty.
+        </p>
+
+        <p class="sca-small-disclaimer">
+          This prediction is not a medical diagnosis. Consult a qualified healthcare
+          professional if you have persistent sleep problems or symptoms.
+        </p>
+
+        <a href="{% url 'predictor:sleep_disorder' %}" class="btn sca-btn-secondary w-100">
+          <i class="bi bi-arrow-repeat"></i> Analyze Again
+        </a>
+      </div>
+      {% else %}
+      <div class="sca-card sca-placeholder-card">
+        <i class="bi bi-clipboard2-pulse sca-placeholder-icon"></i>
+        <h5>Your result will appear here</h5>
+        <p>Complete the form and click "Predict Sleep Disorder" to see your assessment.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>document.addEventListener('DOMContentLoaded', function () {
+  {% if result %}
+  var card = document.getElementById('resultCard');
+  if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  {% endif %}
+});</script>
+{% endblock %}

@@ -1,0 +1,4 @@
+/* SleepCare AI Root Entry Stylesheet */
+@import './styles/global.css';
+@import './styles/prediction.css';
+@import './styles/responsive.css';

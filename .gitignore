@@ -1,0 +1,52 @@
+# Virtual Environments
+venv/
+**/venv/
+env/
+**/env/
+.venv/
+**/.venv/
+
+# Python / Django
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+**/db.sqlite3
+media/
+**/media/
+staticfiles/
+**/staticfiles/
+
+# Environment and Secrets
+.env
+**/.env
+.env.*
+**/.env.*
+passwords.txt
+secrets.json
+
+# Node / Frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ML / Experiment artifacts
+runs/
+**/runs/
+wandb/
+**/wandb/
+
+# IDE / OS
+.vscode/
+**/.vscode/
+.idea/
+**/.idea/
+*.log
+.DS_Store
+**/.DS_Store
+Thumbs.db

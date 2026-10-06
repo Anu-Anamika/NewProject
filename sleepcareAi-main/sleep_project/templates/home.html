@@ -1,0 +1,376 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}SleepCare AI — AI-Powered Sleep Health Analysis{% endblock %}
+{% block body_class %}home-page{% endblock %}
+
+{% block extra_css %}
+<meta name="description" content="SleepCare AI uses advanced machine learning to analyze your health and lifestyle factors, providing sleep quality predictions and sleep disorder risk assessment.">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{# ===================================================================== #}
+{# NAVBAR — Enhanced home-page navbar                                     #}
+{# ===================================================================== #}
+{% block navbar %}
+<nav class="navbar navbar-expand-lg sca-navbar sticky-top" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand sca-brand" href="{% url 'predictor:home' %}" aria-label="SleepCare AI Home">
+      <span class="sca-brand-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13 1.5c-6.6 0-12 5.4-12 12s5.4 12 12 12c4.6 0 8.6-2.6 10.6-6.4-.9.3-1.9.4-2.9.4-6.6 0-12-5.4-12-12 0-2.2.6-4.3 1.7-6.1C14.7 1.6 13.9 1.5 13 1.5z" fill="currentColor"/>
+        </svg>
+      </span>
+      SleepCare <span class="sca-brand-accent">AI</span>
+    </a>
+
+    <!-- Mobile toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenuHome" aria-controls="navMenuHome" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav links -->
+    <div class="collapse navbar-collapse" id="navMenuHome">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'predictor:home' %}" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item dropdown sca-predict-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Predict</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/predict/sleep-quality/"><i class="bi bi-moon-stars" aria-hidden="true"></i> Sleep Quality</a></li>
+            <li><a class="dropdown-item" href="/predict/sleep-disorder/"><i class="bi bi-activity" aria-hidden="true"></i> Sleep Disorder</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'predictor:about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Research</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Tagline pill -->
+      <div class="sca-nav-tagline" aria-hidden="true">
+        <span class="sca-nav-tagline-icon">🌙</span>
+        <span>Better Sleep<br>Brighter Tomorrow</span>
+      </div>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+
+{# ===================================================================== #}
+{# MAIN CONTENT                                                           #}
+{# ===================================================================== #}
+{% block content %}
+<div class="home-page">
+
+  {# ------------------------------------------------------------------- #}
+  {# HERO SECTION                                                         #}
+  {# ------------------------------------------------------------------- #}
+  <section class="sca-home-hero" id="hero">
+    <div class="container">
+      <div class="sca-hero-row">
+
+        <!-- Left: Copy -->
+        <div class="sca-hero-left">
+          <p class="sca-home-eyebrow sca-hero-fade-up">Understand Today, Sleep Better Tomorrow</p>
+
+          <h1 class="sca-home-title sca-hero-fade-up sca-hero-fade-up-d1">
+            Your Sleep Health<br>
+            <span class="sca-highlight">Matters</span>
+          </h1>
+
+          <p class="sca-home-desc sca-hero-fade-up sca-hero-fade-up-d2">
+            SleepCare AI uses advanced machine learning to analyze your health and lifestyle factors,
+            helping you understand your sleep quality and potential sleep disorder risks.
+          </p>
+
+          <div class="sca-hero-ctas">
+            <a href="/predict/sleep-quality/" class="sca-cta-primary sca-btn-scale sca-btn-scale-d1" id="cta-sleep-quality">
+              <i class="bi bi-moon-stars" aria-hidden="true"></i>
+              Check Your Sleep Quality →
+            </a>
+            <a href="/predict/sleep-disorder/" class="sca-cta-secondary sca-btn-scale sca-btn-scale-d2" id="cta-sleep-disorder">
+              Check Sleep Disorder →
+            </a>
+          </div>
+
+          <div class="sca-trust-row sca-hero-fade-up sca-hero-fade-up-d4">
+            <div class="sca-trust-item">
+              <div class="sca-trust-icon" aria-hidden="true">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div class="sca-trust-text">
+                <strong>Privacy First</strong>
+                <span>No data stored</span>
+              </div>
+            </div>
+            <div class="sca-trust-item">
+              <div class="sca-trust-icon" aria-hidden="true">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <div class="sca-trust-text">
+                <strong>AI Powered</strong>
+                <span>XGBoost Models</span>
+              </div>
+            </div>
+            <div class="sca-trust-item">
+              <div class="sca-trust-icon" aria-hidden="true">
+                <i class="bi bi-heart-pulse"></i>
+              </div>
+              <div class="sca-trust-text">
+                <strong>Research Driven</strong>
+                <span>Built for Awareness</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual -->
+        <div class="sca-hero-right sca-hero-fade-in">
+          <div class="sca-hero-visual">
+
+            <!-- Floating crescent moon -->
+            <svg class="sca-hero-moon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M30 5c-13.8 0-25 11.2-25 25s11.2 25 25 25c9.6 0 17.9-5.4 22.1-13.3-1.9.6-3.9.8-6 .8-13.8 0-25-11.2-25-25 0-4.6 1.2-8.9 3.5-12.6C32.1 5.3 31.1 5 30 5z" fill="#5bb8ff" opacity="0.5"/>
+            </svg>
+
+            <!-- Main image -->
+            <div class="sca-hero-image-wrap">
+              <img src="{% static 'images/hero-sleep.jpg' %}" alt="Peaceful sleeping person with AI sleep analytics visualization in a serene moonlit night atmosphere" width="500" height="375" loading="eager">
+            </div>
+
+            <!-- Glass card: Sleep Quality -->
+            <div class="sca-glass-card sca-glass-quality" aria-label="Example sleep quality indicator showing 8 out of 10, Good">
+              <div class="sca-glass-card-label">Sleep Quality</div>
+              <div class="sca-glass-score-row">
+                <div class="sca-glass-circle" aria-hidden="true">
+                  <svg width="48" height="48" viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="19" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3"/>
+                    <circle class="sca-circle-progress" cx="24" cy="24" r="19" fill="none" stroke="#5bb8ff" stroke-width="3" stroke-linecap="round" transform="rotate(-90 24 24)"/>
+                    <text x="24" y="27" text-anchor="middle" fill="white" font-size="12" font-weight="700">8/10</text>
+                  </svg>
+                </div>
+                <div class="sca-glass-info">
+                  <span class="sca-glass-info-label">Good</span>
+                  <div class="sca-glass-bars" aria-hidden="true">
+                    <div class="sca-glass-bar" style="height:8px;"></div>
+                    <div class="sca-glass-bar" style="height:14px;"></div>
+                    <div class="sca-glass-bar" style="height:20px;"></div>
+                    <div class="sca-glass-bar" style="height:16px;"></div>
+                    <div class="sca-glass-bar" style="height:22px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Glass card: Disorder Risk -->
+            <div class="sca-glass-card sca-glass-disorder" aria-label="Example sleep disorder risk indicator showing Low Risk">
+              <div class="sca-glass-card-label">Sleep Disorder Risk</div>
+              <div class="sca-glass-risk-row">
+                <div class="sca-glass-shield" aria-hidden="true">
+                  <i class="bi bi-shield-fill-check"></i>
+                </div>
+                <div>
+                  <span class="sca-glass-risk-label">Low Risk</span>
+                  <div class="sca-glass-bars" aria-hidden="true" style="margin-top:4px;">
+                    <div class="sca-glass-bar" style="height:6px; background:#4ade80;"></div>
+                    <div class="sca-glass-bar" style="height:10px; background:#4ade80;"></div>
+                    <div class="sca-glass-bar" style="height:14px; background:#5bb8ff;"></div>
+                    <div class="sca-glass-bar" style="height:8px; background:#5bb8ff;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="sca-hero-quote">"A healthier tomorrow starts with a better night's sleep."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ---- Wave transition ---- #}
+    <div class="sca-hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C240,110 480,20 720,60 C960,100 1200,30 1440,60 L1440,120 L0,120 Z" fill="rgba(91,184,255,0.08)"/>
+        <path d="M0,75 C320,105 640,45 960,75 C1120,90 1280,55 1440,70 L1440,120 L0,120 Z" fill="rgba(20,125,245,0.06)"/>
+        <path d="M0,90 C360,110 720,80 1080,95 C1260,102 1380,85 1440,90 L1440,120 L0,120 Z" fill="#f7fbff"/>
+      </svg>
+    </div>
+  </section>
+
+  {# ------------------------------------------------------------------- #}
+  {# FEATURE CARDS                                                        #}
+  {# ------------------------------------------------------------------- #}
+  <section class="sca-features-section" id="features" aria-label="Features">
+    <div class="container">
+      <div class="sca-features-grid">
+
+        <!-- Card 1: Sleep Quality Prediction -->
+        <article class="sca-feature-card sca-animate sca-delay-1">
+          <div class="sca-feature-icon" aria-hidden="true">
+            <i class="bi bi-moon-stars"></i>
+          </div>
+          <h3>Sleep Quality Prediction</h3>
+          <p>Get a personalized sleep quality score (3–9) with easy-to-understand insights.</p>
+          <a href="/predict/sleep-quality/" class="sca-feature-cta" id="feature-cta-quality">Explore →</a>
+        </article>
+
+        <!-- Card 2: Sleep Disorder Classification -->
+        <article class="sca-feature-card sca-animate sca-delay-2">
+          <div class="sca-feature-icon" aria-hidden="true">
+            <i class="bi bi-shield-plus"></i>
+          </div>
+          <h3>Sleep Disorder Classification</h3>
+          <p>Check the likelihood of insomnia or sleep apnea with confidence scores.</p>
+          <a href="/predict/sleep-disorder/" class="sca-feature-cta" id="feature-cta-disorder">Check Risk →</a>
+        </article>
+
+        <!-- Card 3: Evidence-Based Model -->
+        <article class="sca-feature-card sca-animate sca-delay-3">
+          <div class="sca-feature-icon" aria-hidden="true">
+            <i class="bi bi-bar-chart-line"></i>
+          </div>
+          <h3>Evidence-Based Model</h3>
+          <p>Powered by XGBoost and researched for reliable predictions.</p>
+          <a href="{% url 'predictor:about' %}" class="sca-feature-cta" id="feature-cta-model">Learn More →</a>
+        </article>
+
+        <!-- Card 4: For a Healthier You -->
+        <article class="sca-feature-card sca-animate sca-delay-4">
+          <div class="sca-feature-icon" aria-hidden="true">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <h3>For a Healthier You</h3>
+          <p>Raise awareness and take proactive steps towards better sleep.</p>
+          <a href="{% url 'predictor:about' %}" class="sca-feature-cta" id="feature-cta-health">Learn More →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  {# ------------------------------------------------------------------- #}
+  {# HOW IT WORKS                                                         #}
+  {# ------------------------------------------------------------------- #}
+  <section class="sca-how-section-new" id="how-it-works" aria-label="How SleepCare AI Works">
+    <div class="container">
+      <div class="sca-section-header sca-animate">
+        <p class="sca-section-label">Simple Steps</p>
+        <h2 class="sca-section-title">How SleepCare AI <span class="sca-highlight">Works</span></h2>
+        <p class="sca-section-subtitle">Get meaningful insights about your sleep health in just a few steps.</p>
+      </div>
+
+      <div class="sca-steps-row">
+        <!-- Step 1 -->
+        <div class="sca-step-item sca-animate sca-delay-1">
+          <div class="sca-step-icon-wrap" aria-hidden="true">
+            <i class="bi bi-clipboard2-data"></i>
+          </div>
+          <h4>1. Enter Your Details</h4>
+          <p>Fill in your sleep, lifestyle and health information.</p>
+        </div>
+
+        <div class="sca-step-arrow" aria-hidden="true">→</div>
+
+        <!-- Step 2 -->
+        <div class="sca-step-item sca-animate sca-delay-2">
+          <div class="sca-step-icon-wrap" aria-hidden="true">
+            <i class="bi bi-gear-wide-connected"></i>
+          </div>
+          <h4>2. AI Analysis</h4>
+          <p>Our trained machine learning models analyze your inputs.</p>
+        </div>
+
+        <div class="sca-step-arrow" aria-hidden="true">→</div>
+
+        <!-- Step 3 -->
+        <div class="sca-step-item sca-animate sca-delay-3">
+          <div class="sca-step-icon-wrap" aria-hidden="true">
+            <i class="bi bi-graph-up-arrow"></i>
+          </div>
+          <h4>3. Get Results</h4>
+          <p>View your sleep quality score or disorder risk with detailed insights.</p>
+        </div>
+
+        <div class="sca-step-arrow" aria-hidden="true">→</div>
+
+        <!-- Step 4 -->
+        <div class="sca-step-item sca-animate sca-delay-4">
+          <div class="sca-step-icon-wrap" aria-hidden="true">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+          <h4>4. Take Action</h4>
+          <p>Use the insights to make healthier lifestyle choices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}
+
+{# ===================================================================== #}
+{# FOOTER — Enhanced home-page footer                                     #}
+{# ===================================================================== #}
+{% block footer %}
+<footer class="sca-home-footer" role="contentinfo">
+  <div class="container">
+    <div class="sca-footer-inner">
+
+      <!-- Brand column -->
+      <div class="sca-footer-brand-col">
+        <div class="sca-footer-brand">
+          <span class="sca-brand-icon">
+            <svg width="22" height="22" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M13 1.5c-6.6 0-12 5.4-12 12s5.4 12 12 12c4.6 0 8.6-2.6 10.6-6.4-.9.3-1.9.4-2.9.4-6.6 0-12-5.4-12-12 0-2.2.6-4.3 1.7-6.1C14.7 1.6 13.9 1.5 13 1.5z" fill="currentColor"/>
+            </svg>
+          </span>
+          SleepCare <span class="sca-footer-brand-accent">AI</span>
+        </div>
+        <p class="sca-footer-desc">AI-powered sleep awareness and analysis. Helping you understand your sleep health through machine learning.</p>
+
+        <div class="sca-footer-disclaimer-text">
+          <i class="bi bi-info-circle" aria-hidden="true"></i>
+          SleepCare AI provides model-estimated results for awareness and educational purposes. It is not a medical diagnosis.
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="sca-footer-col">
+        <h5>Quick Links</h5>
+        <ul class="sca-footer-links">
+          <li><a href="{% url 'predictor:home' %}">Home</a></li>
+          <li><a href="/predict/sleep-quality/">Sleep Quality</a></li>
+          <li><a href="/predict/sleep-disorder/">Sleep Disorder</a></li>
+          <li><a href="{% url 'predictor:about' %}">About</a></li>
+        </ul>
+      </div>
+
+      <!-- More -->
+      <div class="sca-footer-col">
+        <h5>More</h5>
+        <ul class="sca-footer-links">
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="sca-footer-bottom">
+      &copy; {% now "Y" %} SleepCare AI. All rights reserved. MSc Data Science Project.
+    </div>
+  </div>
+</footer>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

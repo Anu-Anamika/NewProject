@@ -1,0 +1,137 @@
+/* ==========================================================================
+   SleepCare AI — Responsive Design Stylesheet
+   ========================================================================== */
+
+/* Tablet & Smaller Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+  .sc-hero {
+    padding: 3rem 1.5rem 5.5rem;
+  }
+
+  .sc-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .sc-hero-visual {
+    flex: 0 0 280px;
+  }
+
+  .sc-hero-card {
+    max-width: 280px;
+  }
+
+  .sc-tips-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sc-prediction-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Tablet (<= 860px) */
+@media (max-width: 860px) {
+  .sc-hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .sc-hero-content {
+    max-width: 100%;
+  }
+
+  .sc-hero-desc {
+    margin: 0 auto;
+  }
+
+  .sc-hero-visual {
+    flex: auto;
+  }
+
+  .sc-tips-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sc-form-col-span-2 {
+    grid-column: span 1;
+  }
+
+  /* Navbar styles centralized in src/styles/navbar.css */
+
+  .sc-footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sc-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .sc-footer-disclaimer {
+    text-align: left;
+  }
+}
+
+/* Mobile Phones (<= 560px) */
+@media (max-width: 560px) {
+  .sc-hero {
+    padding: 2.5rem 1rem 4.5rem;
+  }
+
+  .sc-hero-title {
+    font-size: 1.85rem;
+  }
+
+  .sc-hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .sc-main-section {
+    margin-top: -1.75rem;
+    padding: 0 1rem;
+  }
+
+  .sc-card {
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .sc-form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sc-form-col-span-2 {
+    grid-column: span 1;
+  }
+
+  .sc-tips-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-tips-section {
+    padding: 0 1rem;
+  }
+
+  .sc-disclaimer-wrapper {
+    padding: 0 1rem;
+  }
+
+  .sc-metrics-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-disorder-main-badge {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

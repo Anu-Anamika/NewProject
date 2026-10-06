@@ -1,0 +1,1854 @@
+/* ==========================================================================
+   SleepCare AI — Prediction Pages Stylesheet (Desktop & Base)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Navbar — Centralized in src/styles/navbar.css
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   2. Prediction Hero Section
+   -------------------------------------------------------------------------- */
+.sc-hero {
+  position: relative;
+  background: var(--navy-hero);
+  color: var(--white);
+  padding: 3.5rem 1.5rem 6.5rem;
+  overflow: hidden;
+}
+
+.sc-hero-ambient {
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(20, 125, 245, 0.25) 0%, rgba(7, 29, 59, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.sc-hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sc-hero-content {
+  flex: 1;
+  max-width: 680px;
+}
+
+.sc-hero-eyebrow {
+  display: inline-block;
+  color: var(--primary-light);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  background: rgba(91, 184, 255, 0.12);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(91, 184, 255, 0.25);
+}
+
+.sc-hero-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.sc-hero-title-highlight {
+  color: var(--primary-light);
+  background: linear-gradient(135deg, #74c7ff 0%, #147df5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sc-hero-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  max-width: 580px;
+}
+
+/* Hero Right Visual Cards */
+.sc-hero-visual {
+  flex: 0 0 340px;
+  display: flex;
+  justify-content: center;
+}
+
+.sc-hero-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: rgba(16, 47, 86, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: transform var(--transition-smooth);
+}
+
+.sc-hero-card:hover {
+  transform: translateY(-4px);
+}
+
+.sc-hero-art {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sc-hero-art-icon {
+  font-size: 4.5rem;
+  filter: drop-shadow(0 0 16px rgba(91, 184, 255, 0.6));
+  animation: floatSubtle 4s ease-in-out infinite alternate;
+}
+
+.sc-hero-card-tag {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #e0f2fe;
+  background: rgba(20, 125, 245, 0.25);
+  border: 1px solid rgba(91, 184, 255, 0.3);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  margin-top: 0.75rem;
+}
+
+@keyframes floatSubtle {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-8px) scale(1.03); }
+}
+
+/* Wave Transition */
+.sc-wave-container {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 10;
+}
+
+.sc-wave-svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 64px;
+}
+
+.sc-wave-fill {
+  fill: var(--background);
+}
+
+/* --------------------------------------------------------------------------
+   3. Main Prediction Layout (Grid & Cards)
+   -------------------------------------------------------------------------- */
+.sc-main-section {
+  max-width: 1240px;
+  margin: -2.5rem auto 1.5rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 20;
+}
+
+.sc-prediction-grid {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.sc-grid-col-form {
+  position: sticky;
+  top: 85px;
+}
+
+.sc-grid-col-form .sc-card {
+  height: auto;
+}
+
+.sc-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--transition-normal);
+}
+
+.sc-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.sc-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.sc-card-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sc-card-titles {
+  flex: 1;
+}
+
+.sc-card-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+
+.sc-card-subtitle {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   4. Health Input Form
+   -------------------------------------------------------------------------- */
+.sc-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.sc-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Two-column layout for Row 3 (Steps + BMI) */
+.sc-form-col-span-2 {
+  grid-column: span 2;
+}
+
+.sc-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.sc-field-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sc-field-unit {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.sc-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sc-input-icon {
+  position: absolute;
+  left: 0.85rem;
+  color: #94a3b8;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.sc-input,
+.sc-select {
+  width: 100%;
+  height: 44px;
+  padding: 0 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text);
+  background-color: #fafcff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.sc-input-wrapper.has-icon .sc-input,
+.sc-input-wrapper.has-icon .sc-select {
+  padding-left: 2.5rem;
+}
+
+.sc-input:focus,
+.sc-select:focus {
+  background-color: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.sc-input:focus + .sc-input-icon,
+.sc-input-wrapper:focus-within .sc-input-icon {
+  color: var(--primary);
+}
+
+.sc-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Error input styling */
+.sc-form-field.has-error .sc-input,
+.sc-form-field.has-error .sc-select {
+  border-color: var(--danger);
+  background-color: #fff9f9;
+}
+
+.sc-form-field.has-error .sc-input:focus,
+.sc-form-field.has-error .sc-select:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.sc-field-error {
+  font-size: 0.74rem;
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
+  font-weight: 500;
+}
+
+/* Global Form Alert Error */
+.sc-form-global-error {
+  background-color: var(--danger-bg);
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Predict CTA Button */
+.sc-btn-predict {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(135deg, #147df5 0%, #0d6adb 100%);
+  color: var(--white);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(20, 125, 245, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.sc-btn-predict:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(20, 125, 245, 0.45);
+  background: linear-gradient(135deg, #1f85fb 0%, #0c6adc 100%);
+}
+
+.sc-btn-predict:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.sc-btn-predict:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sc-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.sc-form-footer-note {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Result Panel (Empty & Predicted States)
+   -------------------------------------------------------------------------- */
+.sc-result-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Empty State */
+.sc-result-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  flex: 1;
+}
+
+.sc-empty-illustration {
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(135deg, #e8f4ff 0%, #d8ecff 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 8px 24px rgba(20, 125, 245, 0.12);
+  position: relative;
+}
+
+.sc-empty-icon {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+}
+
+.sc-empty-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  max-width: 320px;
+  line-height: 1.35;
+}
+
+.sc-empty-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  max-width: 340px;
+  line-height: 1.5;
+}
+
+/* Sleep Quality Result State */
+.sc-quality-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.sc-score-meter-wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0.5rem 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-meter-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.sc-meter-bg {
+  fill: none;
+  stroke: #e6f0fa;
+  stroke-width: 10;
+}
+
+.sc-meter-fill {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+.sc-meter-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-meter-score {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.sc-meter-out-of {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.sc-quality-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.sc-quality-badge.excellent {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.sc-quality-badge.good {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.sc-quality-badge.moderate {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.sc-quality-badge.poor {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.sc-quality-label-text {
+  font-size: 0.94rem;
+  color: var(--navy-light);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Submitted Metrics Snapshot Cards */
+.sc-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.sc-metric-mini-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+
+.sc-metric-mini-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.sc-metric-mini-val {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Sleep Insights Block */
+.sc-insights-box {
+  width: 100%;
+  background: #f0f7ff;
+  border: 1px solid #d4e7fe;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  text-align: left;
+}
+
+.sc-insights-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sc-insights-text {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Sleep Disorder Result State
+   -------------------------------------------------------------------------- */
+.sc-disorder-result {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.sc-disorder-main-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.sc-disorder-main-badge.none {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+.sc-disorder-main-badge.insomnia {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #92400e;
+}
+
+.sc-disorder-main-badge.apnea {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+.sc-disorder-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sc-disorder-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.sc-disorder-conf {
+  font-size: 0.82rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Probability Bars List */
+.sc-prob-section {
+  margin-bottom: 1.5rem;
+}
+
+.sc-prob-section-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sc-prob-item {
+  margin-bottom: 0.85rem;
+}
+
+.sc-prob-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--navy-light);
+  margin-bottom: 0.35rem;
+}
+
+.sc-prob-pct {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.sc-prob-bar-track {
+  width: 100%;
+  height: 10px;
+  background-color: #e6f0fa;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.sc-prob-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sc-prob-bar-fill.none {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.sc-prob-bar-fill.insomnia {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.sc-prob-bar-fill.apnea {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* Calibration Note Pill */
+.sc-calibration-note {
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* API Error Box in Result Panel */
+.sc-result-error {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sc-error-icon {
+  width: 52px;
+  height: 52px;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.sc-error-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.sc-error-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  max-width: 320px;
+  margin-bottom: 1.25rem;
+}
+
+.sc-btn-retry {
+  padding: 0.5rem 1.25rem;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background var(--transition-fast);
+}
+
+.sc-btn-retry:hover {
+  background: var(--navy-light);
+}
+
+/* --------------------------------------------------------------------------
+   6. Important Note / Medical Disclaimer Card
+   -------------------------------------------------------------------------- */
+.sc-disclaimer-wrapper {
+  max-width: 1240px;
+  margin: 0 auto 2.5rem;
+  padding: 0 1.5rem;
+}
+
+.sc-disclaimer-card {
+  background: #f0f7ff;
+  border: 1px solid #d4e7fe;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.sc-disclaimer-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #dbeafe;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sc-disclaimer-body {
+  flex: 1;
+}
+
+.sc-disclaimer-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.sc-disclaimer-text {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   7. Health Tips / Feature Cards
+   -------------------------------------------------------------------------- */
+.sc-tips-section {
+  max-width: 1240px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.sc-tips-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.sc-tips-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.sc-tip-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-normal);
+}
+
+.sc-tip-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: #cbdcf2;
+}
+
+.sc-tip-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.sc-tip-icon-box.moon {
+  background: #ecfdf5;
+  color: #10b981;
+}
+
+.sc-tip-icon-box.activity {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.sc-tip-icon-box.brain {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.sc-tip-icon-box.heart {
+  background: #fff1f2;
+  color: #f43f5e;
+}
+
+.sc-tip-icon-box.shield {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.sc-tip-content {
+  flex: 1;
+}
+
+.sc-tip-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.sc-tip-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   8. Shared Footer
+   -------------------------------------------------------------------------- */
+.sc-footer {
+  margin-top: auto;
+  background-color: var(--navy-dark);
+  color: #94a3b8;
+  padding: 3rem 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sc-footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.sc-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.sc-footer-brand-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sc-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.sc-footer-tagline {
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.sc-footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.sc-footer-link {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  transition: color var(--transition-fast);
+}
+
+.sc-footer-link:hover {
+  color: var(--primary-light);
+}
+
+.sc-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sc-footer-social-icon {
+  color: #94a3b8;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-footer-social-icon:hover {
+  color: var(--white);
+}
+
+.sc-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  font-size: 0.76rem;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sc-footer-disclaimer {
+  max-width: 550px;
+  text-align: right;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   Assessment Pre-fill Banner (Chatbot → Prediction Workflow)
+   -------------------------------------------------------------------------- */
+.sc-assessment-banner {
+  margin-bottom: 1.5rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: var(--radius-lg, 12px);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  animation: fadeIn 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sc-assessment-banner.loading {
+  background: #f0f7ff;
+  border: 1px solid #bae0fd;
+  color: #0369a1;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sc-assessment-banner.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sc-assessment-banner.success {
+  background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+  border: 1.5px solid #7dd3fc;
+  box-shadow: 0 4px 14px -3px rgba(14, 165, 233, 0.15);
+  color: #0c4a6e;
+}
+
+.sc-assessment-banner-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #0284c7;
+}
+
+.sc-sparkle-icon {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.sc-assessment-banner-text {
+  margin: 0;
+  color: #334155;
+}
+
+.sc-assessment-banner-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.sc-assessment-note-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(234, 88, 12, 0.1);
+  color: #c2410c;
+  border-radius: var(--radius-pill, 9999px);
+  border: 1px solid rgba(234, 88, 12, 0.2);
+}
+
+.sc-spin {
+  animation: scSpin 1s linear infinite;
+}
+
+@keyframes scSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Prediction Details & Dynamic Medical Information Section
+   -------------------------------------------------------------------------- */
+.sc-details-section {
+  max-width: 1240px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.sc-details-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Combined Sleep Analysis — Tab Navigation & Results Stack
+   -------------------------------------------------------------------------- */
+
+.sc-analysis-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #f1f5f9;
+  padding: 0.3rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.sc-analysis-tab {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-family: inherit;
+}
+
+.sc-analysis-tab:hover {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.sc-analysis-tab.active {
+  color: #147df5;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.sc-analysis-results-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sc-analysis-results-stack .sc-card {
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Combined Analysis Hero — Badge Strip
+   -------------------------------------------------------------------------- */
+.sc-hero-analysis-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.35rem;
+}
+
+.sc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.02em;
+}
+
+.sc-hero-badge.quality {
+  background: rgba(99, 179, 237, 0.18);
+  border: 1px solid rgba(99, 179, 237, 0.4);
+  color: #bae6fd;
+}
+
+.sc-hero-badge.disorder {
+  background: rgba(167, 139, 250, 0.18);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  color: #ddd6fe;
+}
+
+.sc-hero-badge.xai {
+  background: rgba(52, 211, 153, 0.18);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  color: #a7f3d0;
+}
+
+.sc-hero-badge-sep {
+  color: rgba(203, 213, 225, 0.6);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — Combined Analysis Page
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .sc-analysis-results-stack {
+    gap: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   Sleep Health Assessment — Optional Invitation Card
+   ========================================================================== */
+
+.sc-sha-invitation-container {
+  max-width: 960px;
+  margin: 1.25rem auto 0.5rem;
+  padding: 0 1rem;
+}
+
+.sc-sha-invitation-card {
+  background: #ffffff;
+  border: 1.5px solid #dce8f5;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(7, 29, 59, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.sc-sha-invitation-card:hover {
+  border-color: #bcd7f5;
+  box-shadow: 0 6px 20px rgba(7, 29, 59, 0.08);
+}
+
+.sc-sha-invitation-card.completed {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.sc-sha-invitation-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sc-sha-invitation-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #147df5 0%, #0c6adc 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(20, 125, 245, 0.25);
+}
+
+.sc-sha-invitation-icon.completed {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+}
+
+.sc-sha-invitation-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sc-sha-invitation-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #071d3b;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.sc-sha-invitation-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #147df5;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.sc-sha-invitation-badge.completed {
+  color: #059669;
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.sc-sha-invitation-text {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.sc-sha-invitation-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.sc-sha-start-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  background: linear-gradient(135deg, #147df5 0%, #0c6adc 100%);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(20, 125, 245, 0.3);
+  transition: all 0.18s ease;
+}
+
+.sc-sha-start-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(20, 125, 245, 0.4);
+}
+
+.sc-sha-skip-btn {
+  padding: 0.55rem 1.15rem;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 1.5px solid #dce8f5;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.sc-sha-skip-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+/* ==========================================================================
+   Sleep Health Assessment Card (Optional Post-Prediction)
+   ========================================================================== */
+
+.sc-sha-section {
+  padding: 0 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sc-sha-section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── Card shell ── */
+.sc-sha-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 12px rgba(7, 29, 59, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.sc-sha-card.sc-sha-active {
+  border-color: #147df5;
+  box-shadow: 0 4px 20px rgba(20, 125, 245, 0.12);
+}
+
+.sc-sha-card.sc-sha-done {
+  border-color: #22c55e;
+  background: linear-gradient(135deg, #f0fdf4, #ffffff);
+}
+
+/* ── Header row ── */
+.sc-sha-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.sc-sha-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #147df5, #0d5cbf);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.sc-sha-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #071d3b;
+  margin: 0;
+  flex: 1;
+}
+
+.sc-sha-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #147df5;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+}
+
+.sc-sha-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.sc-sha-close-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* ── Description / footnote ── */
+.sc-sha-desc {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0 0 1.25rem;
+}
+
+.sc-sha-footnote {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 0.75rem 0 0;
+  font-style: italic;
+}
+
+/* ── Prompt action buttons ── */
+.sc-sha-prompt-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sc-sha-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, #147df5, #0d5cbf);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.sc-sha-btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.sc-sha-btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sc-sha-btn-secondary {
+  padding: 0.625rem 1.25rem;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.sc-sha-btn-secondary:hover {
+  border-color: #cbd5e1;
+  color: #334155;
+  background: #f8fafc;
+}
+
+/* ── Progress bar ── */
+.sc-sha-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.sc-sha-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.sc-sha-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #147df5, #0d5cbf);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.sc-sha-progress-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* ── Question box ── */
+.sc-sha-question-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.sc-sha-question-text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Yes / No buttons ── */
+.sc-sha-yesno-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.sc-sha-yesno-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sc-sha-yesno-btn.yes {
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.sc-sha-yesno-btn.yes:hover,
+.sc-sha-yesno-btn.yes.selected {
+  background: #f0fdf4;
+  border-color: #22c55e;
+  color: #15803d;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+.sc-sha-yesno-btn.no {
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.sc-sha-yesno-btn.no:hover,
+.sc-sha-yesno-btn.no.selected {
+  background: #fef2f2;
+  border-color: #f87171;
+  color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+/* ── Back button ── */
+.sc-sha-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.sc-sha-back-btn:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+/* ── Review subtitle ── */
+.sc-sha-review-subtitle {
+  font-size: 0.8125rem;
+  color: #64748b;
+  margin: 0 0 1rem;
+}
+
+/* ── Summary table ── */
+.sc-sha-summary-table {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.sc-sha-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.8125rem;
+}
+
+.sc-sha-summary-row:last-child {
+  border-bottom: none;
+}
+
+.sc-sha-summary-row:nth-child(even) {
+  background: #f8fafc;
+}
+
+.sc-sha-summary-label {
+  color: #334155;
+  font-weight: 500;
+}
+
+.sc-sha-summary-value {
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+}
+
+.sc-sha-summary-value.yes {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.sc-sha-summary-value.no {
+  color: #64748b;
+  background: #f1f5f9;
+}
+
+/* ── Context note ── */
+.sc-sha-context-note {
+  font-size: 0.78rem;
+  color: #64748b;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+/* ── Error ── */
+.sc-sha-error {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Review action row ── */
+.sc-sha-review-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ── Spinner animation ── */
+@keyframes sc-sha-spin {
+  to { transform: rotate(360deg); }
+}
+
+.sc-sha-spin {
+  animation: sc-sha-spin 0.8s linear infinite;
+}
+
+/* ── Done state ── */
+.sc-sha-done-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  gap: 0.5rem;
+}
+
+.sc-sha-done-icon {
+  color: #22c55e;
+  margin-bottom: 0.25rem;
+}
+
+.sc-sha-done-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #15803d;
+  margin: 0;
+}
+
+.sc-sha-done-desc {
+  font-size: 0.8125rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .sc-sha-card {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .sc-sha-prompt-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sc-sha-btn-primary,
+  .sc-sha-btn-secondary {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sc-sha-review-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sc-sha-review-actions .sc-sha-btn-primary {
+    justify-content: center;
+  }
+}
+

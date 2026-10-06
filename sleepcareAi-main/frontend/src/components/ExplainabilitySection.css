@@ -1,0 +1,221 @@
+/* ==========================================================================
+   SleepCare AI — ExplainabilitySection Stylesheet
+   Clean medical glass-box model feature attribution display
+   ========================================================================== */
+
+.sc-xai-section {
+  width: 100%;
+  margin: 0;
+  animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sc-xai-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(7, 29, 59, 0.05);
+}
+
+.sc-xai-header {
+  margin-bottom: 1.75rem;
+}
+
+.sc-xai-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #147df5;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.6rem;
+}
+
+.sc-xai-heading {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #071d3b;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+}
+
+.sc-xai-subheading {
+  font-size: 0.96rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Factors Grid */
+.sc-xai-factors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.sc-xai-factor-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.sc-xai-factor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(7, 29, 59, 0.06);
+}
+
+.sc-xai-factor-card.positive {
+  border-left: 4px solid #10b981;
+}
+
+.sc-xai-factor-card.negative {
+  border-left: 4px solid #f43f5e;
+}
+
+.sc-xai-factor-card.neutral {
+  border-left: 4px solid #94a3b8;
+}
+
+.sc-xai-factor-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.sc-xai-factor-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sc-xai-slider-icon {
+  color: #64748b;
+}
+
+.sc-xai-factor-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #071d3b;
+}
+
+.sc-xai-factor-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.sc-xai-factor-badge.positive {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.sc-xai-factor-badge.negative {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+}
+
+.sc-xai-factor-badge.neutral {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.sc-xai-factor-detail {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #475569;
+  margin: 0;
+}
+
+/* Positive vs Risk 2-col Grid */
+.sc-xai-pos-risk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sc-xai-insights-col {
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+}
+
+.sc-xai-insights-col.positive {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.sc-xai-insights-col.risk {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+}
+
+.sc-xai-insights-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+}
+
+.sc-xai-insights-col.positive .sc-xai-insights-heading {
+  color: #166534;
+}
+
+.sc-xai-insights-col.risk .sc-xai-insights-heading {
+  color: #9f1239;
+}
+
+.sc-xai-insights-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.sc-xai-insights-list li {
+  margin-bottom: 0.35rem;
+}
+
+.sc-xai-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #edf2f7;
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .sc-xai-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  .sc-xai-pos-risk-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sc-xai-heading {
+    font-size: 1.5rem;
+  }
+}
